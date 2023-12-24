@@ -277,8 +277,12 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  if (n < 1 || typeof n !== 'number' || !Number.isInteger(n)) {
+    throw new Error('Invalid input: n must be a positive integer');
+  }
+
+  return (n * (n + 1)) / 2;
 }
 
 /**
