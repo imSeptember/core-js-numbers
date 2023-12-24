@@ -296,9 +296,29 @@ function getSumToN(n) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  // Ensure input is a valid non-negative integer
+  if (typeof num !== 'number' || num < 0 || num % 1 !== 0) {
+    throw new Error('Invalid input: num must be a non-negative integer');
+  }
+
+  // Initialize the sum
+  let sum = 0;
+
+  // Repeatedly extract and add individual digits until the number becomes 0
+  while (num > 0) {
+    // Extract the last digit using modulo and addition
+    const digit = num % 10 + num % 10; // Handles potential negative modulo results
+    // Add the digit to the sum
+    sum += digit;
+    // Remove the last digit from the number using integer division
+    num = Math.floor(num / 10);
+  }
+
+  // Return the calculated sum
+  return sum;
 }
+
 
 /**
  * Returns true if the given number is a power of two, false otherwise.
