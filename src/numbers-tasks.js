@@ -488,20 +488,9 @@ function getFloatOnString(str) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(str, base) {
-  // Attempt to parse the integer using parseInt with the specified base
-  const integer = parseInt(str, base);
-
-  // Check for valid parsed integer, ignoring trailing non-integer characters
-  if (Number.isNaN(integer)) {
-    // Couldn't parse a valid integer
-    return NaN;
-  }
-
-  // Return the parsed integer
-  return integer;
+function getIntegerOnString(/* str, base */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns whether a number is a safe integer.
@@ -514,8 +503,8 @@ function getIntegerOnString(str, base) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  return Number.isSafeInteger(number);
 }
 
 /**
