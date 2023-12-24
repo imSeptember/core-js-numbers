@@ -467,16 +467,10 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  // Attempt to parse the string as a float using parseFloat
   const float = parseFloat(str);
-
-  // Check for valid parsed float
   if (Number.isNaN(float)) {
-    // Couldn't parse a valid float
     return NaN;
   }
-
-  // Return the parsed float
   return float;
 }
 
@@ -494,8 +488,9 @@ function getFloatOnString(str) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  const parsedInt = parseInt(str, base);
+  return isNaN(parsedInt) ? NaN : parsedInt;
 }
 
 /**
