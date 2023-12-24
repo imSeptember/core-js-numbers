@@ -489,9 +489,19 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  const parsedInt = parseInt(str, base);
-  return isNaN(parsedInt) ? NaN : parsedInt;
+  // Attempt to parse the integer using parseInt with the specified base
+  const integer = parseInt(str, base);
+
+  // Check for valid parsed integer, ignoring trailing non-integer characters
+  if (Number.isNaN(integer)) {
+    // Couldn't parse a valid integer
+    return NaN;
+  }
+
+  // Return the parsed integer
+  return integer;
 }
+
 
 /**
  * Returns whether a number is a safe integer.
