@@ -351,45 +351,16 @@ function getSine(/* num */) {
  * 2, 2    => '10'
  */
 function numberToStringInBase(number, base) {
-  // Ensure both inputs are valid numbers and base is within valid range
-  if (
-    typeof number !== 'number' ||
-    typeof base !== 'number' ||
-    base < 2 ||
-    base > 36
-  ) {
-    throw new Error('Invalid input: number and base must be numbers, and base must be between 2 and 36');
+  if (typeof number !== 'number' || typeof base !== 'number') {
+    throw new Error('Invalid input: both number and base must be numbers');
   }
 
-  // Handle zero as a special case
-  if (number === 0) {
-    return '0';
+  if (base < 2 || base > 36 || !Number.isInteger(base)) {
+    throw new Error('Invalid base: base must be an integer between 2 and 36');
   }
 
-  // Determine the sign and convert to positive if necessary
-  const sign = number < 0 ? '-' : '';
-  number = Math.abs(number);
-
-  // Initialize an empty string to store the digits
-  let digits = '';
-
-  // Repeatedly divide the number by the base and append remainders as digits
-  while (number > 0) {
-    const digit = number % base;
-    digits = `${toBaseChar(digit)}${digits}`; // Prepending digits for correct order
-    number = Math.floor(number / base);
-  }
-
-  // Return the sign and the digits in the specified base
-  return `${sign}${digits}`;
+  return number.toString(base);
 }
-
-// Helper function to convert a digit to its corresponding character in a base
-function toBaseChar(digit) {
-  const baseChars = '0123456789abcdefghijklmnopqrstuvwxyz';
-  return baseChars[digit];
-}
-
 
 /**
  * Returns a string representation of a number in exponential notation.
