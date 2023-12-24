@@ -262,33 +262,9 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(index) {
-  // Handle negative or non-integer indices
-  if (index < 0 || index % 1 !== 0) {
-    throw new Error('Invalid input: index must be a non-negative integer');
-  }
-
-  // Base cases for the first two Fibonacci numbers
-  if (index === 0) {
-    return 0;
-  } else if (index === 1) {
-    return 1;
-  }
-
-  // Initialize variables for the iterative calculation
-  let fib1 = 0, fib2 = 1, nextFib;
-
-  // Iteratively calculate Fibonacci numbers up to the given index
-  for (let i = 2; i <= index; i++) {
-    nextFib = fib1 + fib2;
-    fib1 = fib2;
-    fib2 = nextFib;
-  }
-
-  // Return the Fibonacci number at the specified index
-  return fib2;
+function getFibonacciNumber(/* index */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the sum of all numbers from 1 to n.
@@ -301,9 +277,16 @@ function getFibonacciNumber(index) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  // Ensure input is a valid non-negative integer
+  if (typeof n !== 'number' || n < 0 || n % 1 !== 0) {
+    throw new Error('Invalid input: n must be a non-negative integer');
+  }
+
+  // Use the arithmetic series formula to efficiently calculate the sum
+  return n * (n + 1) / 2;
 }
+
 
 /**
  * Returns the sum of the digits of a given number.
