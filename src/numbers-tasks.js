@@ -245,19 +245,9 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(num) {
-  // Ensure input is a valid number
-  if (typeof num !== 'number') {
-    throw new Error('Invalid input: num must be a number');
-  }
-
-  // Calculate the cube by multiplying the number by itself three times
-  const cube = num * num * num;
-
-  // Return the cube
-  return cube;
+function getCube(/* num */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the Fibonacci number located at the index position.
@@ -272,9 +262,33 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  // Handle negative or non-integer indices
+  if (index < 0 || index % 1 !== 0) {
+    throw new Error('Invalid input: index must be a non-negative integer');
+  }
+
+  // Base cases for the first two Fibonacci numbers
+  if (index === 0) {
+    return 0;
+  } else if (index === 1) {
+    return 1;
+  }
+
+  // Initialize variables for the iterative calculation
+  let fib1 = 0, fib2 = 1, nextFib;
+
+  // Iteratively calculate Fibonacci numbers up to the given index
+  for (let i = 2; i <= index; i++) {
+    nextFib = fib1 + fib2;
+    fib1 = fib2;
+    fib2 = nextFib;
+  }
+
+  // Return the Fibonacci number at the specified index
+  return fib2;
 }
+
 
 /**
  * Returns the sum of all numbers from 1 to n.
