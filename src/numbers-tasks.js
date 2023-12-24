@@ -372,18 +372,8 @@ function numberToStringInBase(number, base) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(number, fractionDigits = 2) {
-  // Ensure input number is valid
-  if (typeof number !== 'number') {
-    throw new Error('Invalid input: number must be a number');
-  }
+function toExponential(number, fractionDigits) {
 
-  // Ensure fractionDigits is a valid non-negative integer
-  if (typeof fractionDigits !== 'number' || fractionDigits < 0 || fractionDigits % 1 !== 0) {
-    throw new Error('Invalid input: fractionDigits must be a non-negative integer');
-  }
-
-  // Use the built-in toExponential method to convert to exponential notation
   return number.toExponential(fractionDigits);
 }
 
