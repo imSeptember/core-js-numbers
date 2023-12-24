@@ -137,15 +137,9 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(value) {
-
-  // Get the last digit using the modulo operator (%)
-  const lastDigit = value % 10;
-
-  // Return the last digit
-  return lastDigit;
+function getLastDigit(/* value */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns a number by given string representation.
@@ -158,9 +152,24 @@ function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  // Ensure value is a string
+  if (typeof value !== 'string') {
+    throw new Error('Invalid input: value must be a string');
+  }
+
+  // Use parseFloat for potential floating-point numbers
+  const parsedNumber = parseFloat(value);
+
+  // Handle potential NaN (Not-a-Number) result
+  if (isNaN(parsedNumber)) {
+    throw new Error('Invalid input: value cannot be parsed as a number');
+  }
+
+  // Return the parsed number
+  return parsedNumber;
 }
+
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
