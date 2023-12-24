@@ -277,16 +277,9 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(n) {
-  // Ensure input is a valid non-negative integer
-  if (typeof n !== 'number' || n < 0 || n % 1 !== 0) {
-    throw new Error('Invalid input: n must be a non-negative integer');
-  }
-
-  // Use the arithmetic series formula to efficiently calculate the sum
-  return n * (n + 1) / 2;
+function getSumToN(/* n */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the sum of the digits of a given number.
