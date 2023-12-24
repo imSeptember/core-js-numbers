@@ -190,9 +190,22 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  // Ensure both inputs are valid numbers
+  if (typeof num !== 'number' || typeof pow !== 'number') {
+    throw new Error('Invalid input: both num and pow must be numbers');
+  }
+
+  // Calculate the base for rounding (10 raised to the power of pow)
+  const base = 10 ** pow;
+
+  // Round the number to the nearest multiple of the base
+  const roundedNum = Math.round(num / base) * base;
+
+  // Return the rounded number
+  return roundedNum;
 }
+
 
 /**
  * Returns true is the number is prime; otherwise false.
