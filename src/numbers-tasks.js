@@ -258,14 +258,8 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(index) {
-  if (index === 0) {
-    return 0;
-  } else if (index === 1) {
-    return 1;
-  } else {
-    return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
-  }
+function getFibonacciNumber(/* index */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -323,8 +317,11 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  if (num <= 0 || !Number.isInteger(num)) {
+    return false;
+  }
+  return (num & (num - 1)) === 0;
 }
 
 /**
