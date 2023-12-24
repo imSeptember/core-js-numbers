@@ -19,9 +19,6 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-  if (typeof width !== 'number' || typeof height !== 'number') {
-    throw new Error('Invalid input: width and height must be numbers');
-  }
   const area = width * height;
   return area;
 }
@@ -38,9 +35,6 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCircleCircumference(radius) {
-  if (typeof radius !== 'number') {
-    throw new Error('Invalid input: radius must be a number');
-  }
   const circumference = 2 * Math.PI * radius;
   return circumference;
 }
@@ -57,8 +51,8 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -640,16 +634,8 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(number) {
-  let count = 0;
-
-  for (let i = 0; i <= number; i++) {
-    if (i % 2 !== 0) {
-      count++;
-    }
-  }
-
-  return count;
+function getCountOfOddNumbers(/* number */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
