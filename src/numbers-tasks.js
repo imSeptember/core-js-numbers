@@ -437,7 +437,8 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return typeof number === 'number' && isFinite(number);
+  // Use Number.isFinite to check if the value is a finite number
+  return Number.isFinite(number);
 }
 
 /**
