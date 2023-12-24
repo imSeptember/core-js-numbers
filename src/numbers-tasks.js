@@ -623,16 +623,9 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(a, b) {
-  // Ensure inputs are valid numbers
-
-  // Calculate the square of the hypotenuse using the Pythagorean theorem
-  const cSquared = a * a + b * b;
-
-  // Return the square root of cSquared to get the hypotenuse length
-  return Math.sqrt(cSquared);
+function getHypotenuse(/* a, b */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns count of odd numbers from zero to the resulting number.
@@ -647,8 +640,16 @@ function getHypotenuse(a, b) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let count = 0;
+
+  for (let i = 0; i <= number; i++) {
+    if (i % 2 !== 0) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
 module.exports = {
