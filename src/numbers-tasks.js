@@ -323,7 +323,7 @@ function getSumOfDigits(num) {
  */
 function isPowerOfTwo(num) {
   // Handle non-positive numbers and non-integers
-  if (num <= 0 || Number.isInteger(num) === false) {
+  if (num <= 0 || !Number.isInteger(num)) {
     return false;
   }
 
