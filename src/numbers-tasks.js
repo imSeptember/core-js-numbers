@@ -624,8 +624,15 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return Math.sqrt(a * a + b * b);
+  // Ensure inputs are valid numbers
+
+  // Calculate the square of the hypotenuse using the Pythagorean theorem
+  const cSquared = a * a + b * b;
+
+  // Return the square root of cSquared to get the hypotenuse length
+  return Math.sqrt(cSquared);
 }
+
 
 /**
  * Returns count of odd numbers from zero to the resulting number.
