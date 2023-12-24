@@ -230,9 +230,24 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  // Ensure both inputs are valid
+  if (typeof value === 'undefined' || typeof def === 'undefined') {
+    throw new Error('Invalid input: both value and def must be provided');
+  }
+
+  // Attempt to convert value to a number
+  const num = Number(value);
+
+  // If conversion was successful, return the number
+  if (!isNaN(num)) {
+    return num;
+  }
+
+  // Otherwise, return the default value
+  return def;
 }
+
 
 /**
  * Returns the cube of the given number.
