@@ -138,10 +138,6 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  // Ensure value is a valid non-negative integer
-  if (typeof value !== 'number' || value < 0 || !Number.isInteger(value)) {
-    throw new Error('Invalid input: value must be a non-negative integer');
-  }
 
   // Get the last digit using the modulo operator (%)
   const lastDigit = value % 10;
