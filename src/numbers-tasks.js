@@ -96,16 +96,6 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') {
-    throw new Error('Invalid input: coefficients a and b must be numbers');
-  }
-  if (a === 0) {
-    if (b === 0) {
-      return 'Any number'; 
-    } else {
-      return 'No solution'; 
-    }
-  }
   const root = -b / a;
   return root;
 }
