@@ -321,16 +321,9 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(num) {
-  // Handle non-positive numbers and non-integers
-  if (num <= 0 || !Number.isInteger(num)) {
-    return false;
-  }
-
-  // Check if the number has only one bit set in its binary representation
-  return (num & (num - 1)) === 0;
+function isPowerOfTwo(/* num */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the sine of a number.
@@ -342,9 +335,16 @@ function isPowerOfTwo(num) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  // Ensure input is a valid number
+  if (typeof num !== 'number') {
+    throw new Error('Invalid input: num must be a number');
+  }
+
+  // Calculate the sine using the built-in Math.sin function
+  return Math.sin(num);
 }
+
 
 /**
  * Returns a string representation of a number in a specified base (radix).
