@@ -152,24 +152,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(value) {
-  // Ensure value is a string
-  if (typeof value !== 'string') {
-    throw new Error('Invalid input: value must be a string');
-  }
-
-  // Use parseFloat for potential floating-point numbers
-  const parsedNumber = parseFloat(value);
-
-  // Handle potential NaN (Not-a-Number) result
-  if (isNaN(parsedNumber)) {
-    throw new Error('Invalid input: value cannot be parsed as a number');
-  }
-
-  // Return the parsed number
-  return parsedNumber;
+function parseNumberFromString(/* value */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
@@ -184,9 +169,26 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  // Ensure all sides are valid numbers
+  if (
+    typeof a !== 'number' ||
+    typeof b !== 'number' ||
+    typeof c !== 'number' ||
+    a <= 0 ||
+    b <= 0 ||
+    c <= 0
+  ) {
+    throw new Error('Invalid input: all sides must be positive numbers');
+  }
+
+  // Calculate the diagonal using the Pythagorean theorem twice
+  const diagonal = Math.sqrt(a * a + b * b + c * c);
+
+  // Return the calculated diagonal
+  return diagonal;
 }
+
 
 /**
  * Returns the number rounded to specified power of 10.
