@@ -58,11 +58,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  if (typeof value1 !== 'number' || typeof value2 !== 'number') {
-    throw new Error('Invalid input: both values must be numbers');
-  }
-  const average = (value1 + value2) / 2;
-  return average;
+  return (value1 + value2) / 2;
 }
 
 /**
