@@ -336,12 +336,6 @@ function isPowerOfTwo(/* num */) {
  *   Math.PI / 2 => 1
  */
 function getSine(num) {
-  // Ensure input is a valid number
-  if (typeof num !== 'number') {
-    throw new Error('Invalid input: num must be a number');
-  }
-
-  // Calculate the sine using the built-in Math.sin function
   return Math.sin(num);
 }
 
