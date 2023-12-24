@@ -230,24 +230,9 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(value, def) {
-  // Ensure both inputs are valid
-  if (typeof value === 'undefined' || typeof def === 'undefined') {
-    throw new Error('Invalid input: both value and def must be provided');
-  }
-
-  // Attempt to convert value to a number
-  const num = Number(value);
-
-  // If conversion was successful, return the number
-  if (!isNaN(num)) {
-    return num;
-  }
-
-  // Otherwise, return the default value
-  return def;
+function toNumber(/* value, def */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the cube of the given number.
@@ -260,9 +245,19 @@ function toNumber(value, def) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  // Ensure input is a valid number
+  if (typeof num !== 'number') {
+    throw new Error('Invalid input: num must be a number');
+  }
+
+  // Calculate the cube by multiplying the number by itself three times
+  const cube = num * num * num;
+
+  // Return the cube
+  return cube;
 }
+
 
 /**
  * Returns the Fibonacci number located at the index position.
